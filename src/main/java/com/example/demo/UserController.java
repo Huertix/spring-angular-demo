@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:9090")
 public class UserController {
 
   private final UserRepository userRepository;
@@ -14,12 +14,12 @@ public class UserController {
     this.userRepository = userRepository;
   }
 
-  @GetMapping("/users")
+  @GetMapping("/api/users")
   public List<User> getUsers() {
     return (List<User>) userRepository.findAll();
   }
 
-  @PostMapping("/users")
+  @PostMapping("/api/users")
   void addUser(@RequestBody User user) {
     userRepository.save(user);
   }
